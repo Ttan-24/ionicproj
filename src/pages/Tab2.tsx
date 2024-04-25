@@ -26,7 +26,8 @@ const Tab2: React.FC = () => {
 
     const labels = ['1 miles', '2 miles', '3 miles', '4 miles', '5 miles', '6 miles', '7 miles', '8 miles', '9 miles', '10 miles', '11 miles'];
     const data = [65, 59, 80, 81, 56, 55, 40, 10, 5, 50, 10, 15];
-
+    Chart.defaults.color = "#D9D9D9";
+    Chart.defaults.borderColor = "#856464";
     var myChart = new Chart(lineCanvasRef.current, {
       type: 'line',
       data: {
@@ -35,23 +36,23 @@ const Tab2: React.FC = () => {
           {
             label: 'Elevation Found',
             fill: false,
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
+            backgroundColor: '#FFA133',
+            borderColor: '#FFA133',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
+            pointBorderColor: 'FFA133',
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+            pointHoverBackgroundColor: 'FFA133',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
             data,
-            spanGaps: false,
+            spanGaps: false,            
           },
         ],
       },
@@ -74,32 +75,26 @@ const Tab2: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
-        </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
-          </IonToolbar>
         </IonHeader>
         <IonCard className='ion-card-wrapper'>
           <IonCardHeader>
-            <IonCardTitle><IonInput label="Plan your hike!"></IonInput></IonCardTitle>
+            <IonCardTitle className='ion-card-title-wrapper'>Plan your hike!</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonButton size="small" fill="outline" color = "medium" disabled shape="round">
-              <IonImg src = "/images/location.png"></IonImg>
+            <IonButton size="small" fill="outline" color = "light" disabled shape="round">
+              <IonImg src = "/images/placeholder.svg"></IonImg>
               New York City
             </IonButton>
           </IonCardContent>
           <IonCardContent>
-            <IonItem>
-              <IonInput label="Origin" labelPlacement="stacked" placeholder="One Pace Plaza, New York"></IonInput>
+            <IonItem className='map-input-wrapper'>
+              <IonInput label="Origin" labelPlacement="stacked" placeholder="One Pace Plaza, New York" color="primary"></IonInput>
             </IonItem>
-            <IonItem>
-              <IonInput label="Destination" labelPlacement="stacked" placeholder="163 William Street, New York"></IonInput>
+            <IonItem className='map-input-wrapper'>
+              <IonInput label="Destination" labelPlacement="stacked" placeholder="163 William Street, New York" color="primary"></IonInput>
             </IonItem>
           </IonCardContent>
         </IonCard>
@@ -107,7 +102,7 @@ const Tab2: React.FC = () => {
           <IonCardHeader>
           <IonCardTitle>Journey Description</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent>
+          <IonCardContent className='card-journey-description'>
             This is a steep hike! We have suggested the correct footwear below!
           </IonCardContent>
         </IonCard>
@@ -116,7 +111,7 @@ const Tab2: React.FC = () => {
           <IonCardTitle>Elevation Chart</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <canvas ref={lineCanvasRef} style={{ position: 'relative', height: '20vh', width: '40vw' }}></canvas>
+            <canvas ref={lineCanvasRef} style={{ position: 'relative', height: '20vh', width: '40vw', color: "#FFA133"}}></canvas>
           </IonCardContent>
         </IonCard>
       </IonContent>

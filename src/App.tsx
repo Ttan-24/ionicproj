@@ -41,7 +41,7 @@ import '@ionic/react/css/display.css';
 
 /* import '@ionic/react/css/palettes/dark.always.css'; */
 /* import '@ionic/react/css/palettes/dark.class.css'; */
-import '@ionic/react/css/palettes/dark.system.css';
+//import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
@@ -68,13 +68,13 @@ const App: React.FC = () => (
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="tab1" href="/tab1">
-            <IonImg src = "/images/homeIcon.png" />
+            <IonImg src = "/images/home.svg" />
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
-            <IonImg src = "/images/map.png" />
+            <IonImg src = "/images/map.svg" />
           </IonTabButton>
           <IonTabButton tab="tab3" href="/tab3">
-            <IonImg src = "/images/settings.png" />
+            <IonImg src = "/images/settings.svg" />
           </IonTabButton>
         </IonTabBar>
       </IonTabs>

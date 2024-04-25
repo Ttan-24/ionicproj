@@ -1,7 +1,30 @@
 .ion-card-wrapper {
     box-shadow: none;
+    background-color: #856464;
 }
 
 .ion-card-weather-wrapper {
     border-radius: 20px;
+    padding: 10px;
+    margin: 30px;
+    background-color: #9E7C75;
 }
+
+.ion-card-title-wrapper {
+    padding: 10px;
+    font-size: x-large;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bolder;
+    color: #CDB2AC;
+}
+
+.weather-title {
+    font-weight:530;
+    color: #D9D9D9;
+}
+
+.weather-description {
+    font-weight: lighter;
+    color: #D9D9D9;
+}
+

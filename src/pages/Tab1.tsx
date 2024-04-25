@@ -1,6 +1,7 @@
 import { IonBackButton, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
+import './global.css';
 import { heart, logoApple, settingsSharp, star } from 'ionicons/icons';
 
 function OpenLearnMore() {
@@ -11,35 +12,29 @@ const Tab1: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
-        </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
-          </IonToolbar>
         </IonHeader>
         <IonCard className='ion-card-wrapper'>
           <IonCardHeader>
-            <IonCardTitle><IonInput label="Good Afternoon, Tanvi"></IonInput></IonCardTitle>
+            <IonCardTitle className='ion-card-title-wrapper'>Good Afternoon, Tanvi</IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
-            <IonButton size="small" fill="outline" color = "medium" disabled shape="round">
-              <IonImg src = "/images/location.png"></IonImg>
+            <IonButton size="small" fill="outline" color = "light" disabled shape="round">
+              <IonImg src = "/images/placeholder.svg"></IonImg>
               New York City
             </IonButton>
           </IonCardContent>
         </IonCard>
         <IonCard className='ion-card-weather-wrapper'>
           <IonCardHeader>
-          <IonCardTitle>Weather Description</IonCardTitle>
+          <IonCardTitle className='weather-title'>Weather Description</IonCardTitle>
           </IonCardHeader>
-          <IonCardContent>
+          <IonCardContent className='weather-description'>
             Sunny skies and warm winds means you should not wear a coat today. However! The terrain of your journey has high elevations, so it is advised you wear a jacket for the coming journey.
           </IonCardContent>
-          <IonCardContent>
+          <IonCardContent className='weather-description'>
             Enjoy your hike!
           </IonCardContent>
           <IonButton fill="clear" onClick={OpenLearnMore} color="primary">Learn More</IonButton>

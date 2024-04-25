@@ -1,0 +1,20 @@
+ion-content {
+    --background: linear-gradient(#856464, #856464);
+}
+
+ion-card {
+    --background: #9E7C75;
+}
+
+ion-item {
+    --background: #856464;
+}
+
+ion-card-title {
+    --font-weight:530;
+    --color: #D9D9D9;
+}
+
+ion-input {
+    --color: #fff;
+  }

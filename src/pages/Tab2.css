@@ -1,7 +1,25 @@
 .ion-card-journey-wrapper {
     border-radius: 20px;
+    padding: 10px;
+    margin: 30px;
 }
 
 .ion-card-elevation-wrapper {
     border-radius: 20px;
+    padding: 10px;
+    margin: 30px;
+}
+
+.ion-card-title-wrapper {
+    padding: 10px;
+}
+
+.map-input-wrapper {
+    background-color: #9E7C75;
+    color: #D9D9D9;
+}
+
+.card-journey-description {
+    font-weight: lighter;
+    color: #D9D9D9;
 }
