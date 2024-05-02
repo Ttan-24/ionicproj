@@ -2,11 +2,11 @@ import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCon
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
 import Chart from 'chart.js/auto';
-import { useRef, useEffect } from 'react';
-
-
+import { useRef, useEffect, useState } from 'react';
+//import LogManager from './LogManager';
 
 const Tab2: React.FC = () => {
+  
   
   const lineCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -17,11 +17,13 @@ const Tab2: React.FC = () => {
     };
   }, []);
 
-    
+  //log("testing methods()");
+  // logarr.push("testing methods()");
   
   const lineChartMethod = () => {
     if (!lineCanvasRef.current) {
       return;
+      //log("lineChartMethod() called");
     }
 
     const labels = ['1 miles', '2 miles', '3 miles', '4 miles', '5 miles', '6 miles', '7 miles', '8 miles', '9 miles', '10 miles', '11 miles'];
@@ -68,6 +70,8 @@ const Tab2: React.FC = () => {
       const chartInstance = Chart.getChart(lineCanvasRef.current);
       if (chartInstance) {
         chartInstance.destroy();
+        //log("destroychart() called");
+        // logarr.push("destroychart() called");
       }
     }
   };

@@ -1,8 +1,64 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { AccordionGroupCustomEvent, IonAccordion, IonAccordionGroup, IonAlert, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonList, IonModal, IonPage, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
+import { useState, useRef } from 'react';
 import './Tab3.css';
+import { OverlayEventDetail } from '@ionic/react/dist/types/components/react-component-lib/interfaces';
+
 
 const Tab3: React.FC = () => {
+  // let logs = LogManager.getLogs();
+  // let log = LogManager.log;
+  // // let logarr = LogManager.logs;
+  // const modal = useRef<HTMLIonModalElement>(null);
+  // const input = useRef<HTMLIonInputElement>(null);
+  
+  // const [applicationLog, setApplicationLog] = useState<any>("");
+  // function log (stuffToLog: any) {
+  //   console.log(stuffToLog);
+  //   setApplicationLog(applicationLog + "<<" + stuffToLog);
+  // }
+
+  const [applicationLog, setApplicationLog] = useState<string>("");
+
+  function log(stuffToLog: any) {
+    console.log(stuffToLog);
+    setApplicationLog((prevLog) => prevLog + "\n" + stuffToLog); // Add a newline
+  }
+
+  
+  
+  function onAbout() {
+    log("onAbout clicked");
+  }
+
+  function onLog() {
+    log("onLog clicked");
+  }
+
+  function onActivity() {
+    log("onActivity clicked");
+  }
+
+  function onNotifications() {
+    log("onNotifications clicked");
+  }
+
+  function onUserTimeSpent() {
+    log("onUserTimeSpent clicked");
+  }
+  function onFavourites() {
+    log("onFavourites clicked");
+  }
+  function onAccessibility() {
+    log("onAccessibility clicked");
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    console.log = () => {}; // Override console.log
+    console.error = () => {}; // Override console.error
+    console.debug = () => {}; // Override console.debug
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -13,6 +69,73 @@ const Tab3: React.FC = () => {
         <IonCard className='ion-card-wrapper'>
           <IonCardHeader>
             <IonCardTitle className='ion-card-title-wrapper'>Settings</IonCardTitle>
+            
+            <IonAccordionGroup>
+          <IonAccordion value="first">
+          <IonButton id="about-modal" expand="block" slot='header' onClick={onAbout}>About</IonButton>
+          
+          <div className="ion-padding" slot="content">
+          An app that takes live geographical data (elevation/precipitation/etc.) from the surrounding area and suggests what clothing to wear when they go out today. For example, if the land is not steep it will recommend to wear heels or flats. But if it was steep then it will suggest hiking boots or sneakers
+          </div>
+          </IonAccordion>
+          <IonAccordion value="second">
+          <IonButton id="log-modal" expand="block" slot='header' onClick={onLog}>Logs</IonButton>
+          
+          <div className="ion-padding" slot="content" style={{ whiteSpace: 'pre-wrap' }}>
+          {applicationLog}
+        </div>
+          </IonAccordion>
+          <IonAccordion value="third">
+          <IonButton id="activity-modal" expand="block" slot='header' onClick={onActivity}>Your Activity</IonButton>
+          
+          <div className="ion-padding" slot="content">
+          You recent activity:
+          Favourited route
+          </div>
+          </IonAccordion>
+          <IonAccordion value="fourth">
+          <IonButton id="notification-modal" expand="block" slot='header' onClick={onNotifications}>Notifications</IonButton>
+          
+          <div className="ion-padding" slot="content">
+          Checkout our recent update!
+          </div>
+          </IonAccordion>
+          <IonAccordion value="fifth">
+          <IonButton id="time-modal" expand="block" slot='header' onClick={onUserTimeSpent}>Time Spent</IonButton>
+          
+          <div className="ion-padding" slot="content">
+          You have been using our app for : 1 hour 20 mins
+          </div>
+          </IonAccordion>
+          <IonAccordion value="sixth">
+          <IonButton id="favourite-modal" expand="block" slot='header' onClick={onFavourites}>Favourites</IonButton>
+          
+          <div className="ion-padding" slot="content">
+          Favourite routes
+            <IonList>
+              From One Pace Plaza to 160 William Street
+            </IonList>
+            <IonList>
+              From WTC Station to 130 William Street
+            </IonList>
+          </div>
+          </IonAccordion>
+          <IonAccordion value="seventh">
+          <IonButton id="access-modal" expand="block" slot='header' onClick={onAccessibility}>Accessibility</IonButton>
+          
+          <div className="ion-padding" slot="content">
+          <IonToggle>Dark Mode</IonToggle> 
+          </div>
+          </IonAccordion>
+        </IonAccordionGroup>
+            
+            {/* <IonList>
+            {logs.map((log, index) => (
+              <IonItem key={index}>
+              <IonLabel>{log}</IonLabel>
+              </IonItem>
+            ))}
+            </IonList> */}
           </IonCardHeader>
         </IonCard>
       </IonContent>

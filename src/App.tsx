@@ -45,9 +45,17 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { useState } from 'react';
+
 
 setupIonicReact();
 
+// const message = 'Hello from Parent!';
+// const [applicationLog, setApplicationLog] = useState<any>("");
+// function log (stuffToLog: any) {
+//   console.log(stuffToLog);
+//   setApplicationLog(applicationLog + " >> " + stuffToLog);
+// }
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>

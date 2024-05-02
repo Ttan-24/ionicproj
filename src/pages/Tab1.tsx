@@ -3,9 +3,18 @@ import ExploreContainer from '../components/ExploreContainer';
 import './Tab1.css';
 import './global.css';
 import { heart, logoApple, settingsSharp, star } from 'ionicons/icons';
+import Tab3 from './Tab3';
+import { useState } from 'react';
+//import LogManager from './LogManager';
+
+//let log = LogManager.log;
+//let logarr = LogManager.logs;
 
 function OpenLearnMore() {
   window.open('https://weather.com/', '_system', 'location=yes');
+  //log("clicked - opens the weather hyperlink");
+  //logarr.push("Opens weather link");
+  
 }
 
 const Tab1: React.FC = () => {
