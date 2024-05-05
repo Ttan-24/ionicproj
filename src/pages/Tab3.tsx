@@ -72,44 +72,50 @@ const Tab3: React.FC = () => {
             
             <IonAccordionGroup>
           <IonAccordion value="first">
-          <IonButton id="about-modal" expand="block" slot='header' onClick={onAbout}>About</IonButton>
-          
+          <IonItem slot="header" color="secondary">
+          <IonLabel className='settings-label' onClick={onAbout}>ABOUT</IonLabel>
+          </IonItem>
           <div className="ion-padding" slot="content">
           An app that takes live geographical data (elevation/precipitation/etc.) from the surrounding area and suggests what clothing to wear when they go out today. For example, if the land is not steep it will recommend to wear heels or flats. But if it was steep then it will suggest hiking boots or sneakers
           </div>
           </IonAccordion>
           <IonAccordion value="second">
-          <IonButton id="log-modal" expand="block" slot='header' onClick={onLog}>Logs</IonButton>
-          
+          <IonItem slot="header" color="secondary">
+          <IonLabel className='settings-label' onClick={onLog}>LOGS</IonLabel>
+          </IonItem>
           <div className="ion-padding" slot="content" style={{ whiteSpace: 'pre-wrap' }}>
           {applicationLog}
         </div>
           </IonAccordion>
           <IonAccordion value="third">
-          <IonButton id="activity-modal" expand="block" slot='header' onClick={onActivity}>Your Activity</IonButton>
-          
+          <IonItem slot="header" color="secondary">
+          <IonLabel className='settings-label' onClick={onActivity}>YOUR ACTIVITY</IonLabel>
+          </IonItem>
           <div className="ion-padding" slot="content">
           You recent activity:
           Favourited route
           </div>
           </IonAccordion>
           <IonAccordion value="fourth">
-          <IonButton id="notification-modal" expand="block" slot='header' onClick={onNotifications}>Notifications</IonButton>
-          
+          <IonItem slot="header" color="secondary">
+          <IonLabel className='settings-label' onClick={onNotifications}>NOTIFICATIONS</IonLabel>
+          </IonItem>
           <div className="ion-padding" slot="content">
           Checkout our recent update!
           </div>
           </IonAccordion>
           <IonAccordion value="fifth">
-          <IonButton id="time-modal" expand="block" slot='header' onClick={onUserTimeSpent}>Time Spent</IonButton>
-          
+          <IonItem slot="header" color="secondary">
+          <IonLabel className='settings-label' onClick={onUserTimeSpent}>TIME SPENT</IonLabel>
+          </IonItem>
           <div className="ion-padding" slot="content">
           You have been using our app for : 1 hour 20 mins
           </div>
           </IonAccordion>
           <IonAccordion value="sixth">
-          <IonButton id="favourite-modal" expand="block" slot='header' onClick={onFavourites}>Favourites</IonButton>
-          
+          <IonItem slot="header" color="secondary">
+          <IonLabel className='settings-label' onClick={onFavourites}>FAVOURITE</IonLabel>
+          </IonItem>
           <div className="ion-padding" slot="content">
           Favourite routes
             <IonList>
@@ -121,8 +127,9 @@ const Tab3: React.FC = () => {
           </div>
           </IonAccordion>
           <IonAccordion value="seventh">
-          <IonButton id="access-modal" expand="block" slot='header' onClick={onAccessibility}>Accessibility</IonButton>
-          
+          <IonItem slot="header" color="secondary">
+          <IonLabel className='settings-label' onClick={onAccessibility}>ACCESSIBILITY</IonLabel>
+          </IonItem>
           <div className="ion-padding" slot="content">
           <IonToggle>Dark Mode</IonToggle> 
           </div>

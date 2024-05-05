@@ -10,3 +10,11 @@
     font-weight: bolder;
     color: #CDB2AC;
 }
+
+.settings-label {
+    text-align: center;
+}
+
+div[slot='content'] {
+    background: rgba(var(--ion-color-tertiary-rgb), 0.25);
+}
