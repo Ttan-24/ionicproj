@@ -18,3 +18,7 @@
 div[slot='content'] {
     background: rgba(var(--ion-color-tertiary-rgb), 0.25);
 }
+
+.accordian-list {
+    margin-top: 20px;
+}

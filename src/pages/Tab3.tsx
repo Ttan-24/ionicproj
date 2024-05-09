@@ -70,7 +70,7 @@ const Tab3: React.FC = () => {
           <IonCardHeader>
             <IonCardTitle className='ion-card-title-wrapper'>Settings</IonCardTitle>
             
-            <IonAccordionGroup>
+            <IonAccordionGroup className='accordian-list'>
           <IonAccordion value="first">
           <IonItem slot="header" color="secondary">
           <IonLabel className='settings-label' onClick={onAbout}>ABOUT</IonLabel>

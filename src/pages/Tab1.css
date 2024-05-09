@@ -1,3 +1,6 @@
+.image-app-header {
+    margin-top: 25px;
+}
 .ion-card-wrapper {
     box-shadow: none;
     background-color: #856464;
@@ -7,6 +10,7 @@
     border-radius: 20px;
     padding: 10px;
     margin: 30px;
+    margin-top: 20px;
     background-color: #9E7C75;
 }
 

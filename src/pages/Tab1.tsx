@@ -55,6 +55,8 @@ const Tab1: React.FC = () => {
   // }
   const [elevationData, setElevationData] = useState<any[]>([]);
   const [anotherElevationData, anotherSetElevationData] = useState<any[]>([]);
+  const [latitudeData, setLatitudeData] = useState<any>();
+  const [longitudeData, setLongitudeData] = useState<any>();
 
   function onButtonClickAPI() {
     // Run an axios request to get data from the internet
@@ -96,6 +98,28 @@ const Tab1: React.FC = () => {
       });
   }
 
+  function onGeocodeAPI() {
+    // Run an axios request to get data from the internet
+    const theUrl =
+      "https://geocode.maps.co/search?q=one+pace+plaza+New+York&api_key=663d026c06821221122017uny22fd0f";
+    axios
+      .get(theUrl)
+      .then((response) => {
+        // Assuming response.data.results is an array of objects
+        if (response.data && Array.isArray(response.data)) {
+          console.log("The latitude is: ", response.data[0]?.lat);
+          console.log("The longitude is: ", response.data[0]?.lon);
+          setLatitudeData(response.data[0]?.lat);
+          setLongitudeData(response.data[0]?.lon);
+        } else {
+          console.log("Unexpected response structure: ", response.data);
+        }
+      })
+      .catch((error) => {
+        console.error("Axios error: ", error);
+      });
+  }
+
   return (
     <IonPage>
       <IonHeader></IonHeader>
@@ -118,6 +142,7 @@ const Tab1: React.FC = () => {
               <IonImg src="/images/placeholder.svg"></IonImg>
               New York City
             </IonButton>
+            <IonImg className="image-app-header" src="images/appheader.png"></IonImg>
           </IonCardContent>
         </IonCard>
         <IonCard className="ion-card-weather-wrapper">
@@ -137,92 +162,6 @@ const Tab1: React.FC = () => {
           <IonButton fill="clear" onClick={OpenLearnMore} color="primary">
             Learn More
           </IonButton>
-        </IonCard>
-        <IonCard>
-          <IonButton onClick={onButtonClickAPI}>
-            Click here for the API
-          </IonButton>
-          <IonCardContent>
-            {elevationData.map((data, index) => (
-              <IonItem key={index}>
-                <IonLabel>
-                  Latitude: {data.latitude}, Longitude: {data.longitude},
-                  Elevation: {data.elevation} meters
-                </IonLabel>
-              </IonItem>
-            ))}
-          </IonCardContent>
-        </IonCard>
-        <IonCard>
-          <IonButton onClick={onAnotherButtonClickAPI}>
-            Click here for another API call
-          </IonButton>
-          <IonCardContent>
-            {anotherElevationData.map((data, index) => (
-              <IonItem key={index}>
-                <IonLabel>
-                  Latitude: {data.latitude}, Longitude: {data.longitude},
-                  Elevation: {data.elevation} meters
-                </IonLabel>
-              </IonItem>
-            ))}
-          </IonCardContent>
-        </IonCard>
-        <IonCard>
-          <IonCardContent>
-            <IonList>
-              {elevationData.map((data, index) => {
-                // Ensure there is a corresponding element in anotherElevationData
-                const anotherData = anotherElevationData[index];
-                if (anotherData) {
-                  
-                  const elevationDifference = data.elevation - anotherData.elevation;
-                    let result ="";
-                    let imageResult = '';
-                    switch (true) {
-                      case (elevationDifference < 10):
-                        console.log("high heels");
-                        result = "hight heels";
-                        break;
-                      case (elevationDifference < 25):
-                        console.log("dress/fancy shoes");
-                        result = "dress/fancy shoes";
-                        break;
-                      case (elevationDifference < 50):
-                        console.log("normal shoes");
-                        result = "normal shoes";
-                        imageResult = "images/shoe.png";
-                        break;
-                      case (elevationDifference < 100):
-                        console.log("trainers");
-                        result = "trainers";
-                        imageResult = "images/trainers.png";
-                        break;
-                      case (elevationDifference > 100):
-                        console.log("hiking boots");
-                        result = "hiking boots";
-                        break;
-                      default:
-                        console.log("No shoes found for this elevation.");
-                        result = "No shoes found for this elevation.";
-                    }
-                  return (
-                    <IonItem key={index}>
-                      <IonLabel>
-                        Elevation difference at index {index}:{" "}
-                        {elevationDifference} meters
-                        <IonCard>
-                          <IonCardContent>{result}</IonCardContent>
-                          <IonImg className='shoe-image' src={imageResult}></IonImg>
-                        </IonCard>
-                      </IonLabel>
-                    </IonItem>
-                  );
-                }
-                return null; // Return null if there is no corresponding element
-              })}
-            </IonList>
-          </IonCardContent>
         </IonCard>
       </IonContent>
     </IonPage>
