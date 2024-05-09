@@ -108,6 +108,7 @@ const Tab2: React.FC = () => {
           </IonCardHeader>
           <IonCardContent className='card-journey-description'>
             This is a steep hike! We have suggested the correct footwear below!
+            <IonImg className='shoe-image' src='images/shoe.png'></IonImg>
           </IonCardContent>
         </IonCard>
         <IonCard className='ion-card-elevation-wrapper'>

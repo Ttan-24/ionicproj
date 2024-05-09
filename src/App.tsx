@@ -56,6 +56,14 @@ setupIonicReact();
 //   console.log(stuffToLog);
 //   setApplicationLog(applicationLog + " >> " + stuffToLog);
 // }
+
+import { Haptics, ImpactStyle } from '@capacitor/haptics';
+
+const hapticsImpactMedium = async () => {
+  console.log("onclick haptic");
+  await Haptics.impact({ style: ImpactStyle.Medium });
+};
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -75,13 +83,13 @@ const App: React.FC = () => (
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
+          <IonTabButton tab="tab1" href="/tab1" onClick={hapticsImpactMedium}>
             <IonImg src = "/images/home.svg" />
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="tab2" href="/tab2" onClick={hapticsImpactMedium}>
             <IonImg src = "/images/map.svg" />
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
+          <IonTabButton tab="tab3" href="/tab3" onClick={hapticsImpactMedium}>
             <IonImg src = "/images/settings.svg" />
           </IonTabButton>
         </IonTabBar>

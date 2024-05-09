@@ -175,32 +175,46 @@ const Tab1: React.FC = () => {
                 // Ensure there is a corresponding element in anotherElevationData
                 const anotherData = anotherElevationData[index];
                 if (anotherData) {
-                  const elevationDifference =
-                    data.elevation - anotherData.elevation;
+                  
+                  const elevationDifference = data.elevation - anotherData.elevation;
+                    let result ="";
+                    let imageResult = '';
                     switch (true) {
                       case (elevationDifference < 10):
                         console.log("high heels");
+                        result = "hight heels";
                         break;
                       case (elevationDifference < 25):
                         console.log("dress/fancy shoes");
+                        result = "dress/fancy shoes";
                         break;
                       case (elevationDifference < 50):
                         console.log("normal shoes");
+                        result = "normal shoes";
+                        imageResult = "images/shoe.png";
                         break;
                       case (elevationDifference < 100):
                         console.log("trainers");
+                        result = "trainers";
+                        imageResult = "images/trainers.png";
                         break;
                       case (elevationDifference > 100):
                         console.log("hiking boots");
+                        result = "hiking boots";
                         break;
                       default:
                         console.log("No shoes found for this elevation.");
+                        result = "No shoes found for this elevation.";
                     }
                   return (
                     <IonItem key={index}>
                       <IonLabel>
                         Elevation difference at index {index}:{" "}
                         {elevationDifference} meters
+                        <IonCard>
+                          <IonCardContent>{result}</IonCardContent>
+                          <IonImg className='shoe-image' src={imageResult}></IonImg>
+                        </IonCard>
                       </IonLabel>
                     </IonItem>
                   );
